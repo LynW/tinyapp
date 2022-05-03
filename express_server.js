@@ -23,10 +23,6 @@ app.get("/urls", (req, res) => {
   res.render("urls_index", templateVars);
 });
 
-app.get("/hello", (req, res) => {
-  const templateVars = { greeting: 'Hello World!' };
-  res.render("pages/hello_world", templateVars);
-});
 
 app.get("/urls/:shortURL", (req, res) => {
   const templateVars = { shortURL: req.params.shortURL, longURL: urlDatabase };
