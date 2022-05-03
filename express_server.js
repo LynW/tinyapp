@@ -27,3 +27,8 @@ app.get("/hello", (req, res) => {
   const templateVars = { greeting: 'Hello World!' };
   res.render("pages/hello_world", templateVars);
 });
+
+app.get("/urls/:shortURL", (req, res) => {
+  const templateVars = { shortURL: req.params.shortURL, longURL: urlDatabase };
+  res.render("pages/urls_show", templateVars);
+});
