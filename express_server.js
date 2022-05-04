@@ -34,10 +34,14 @@ app.post("/urls", (req, res) => {
 });
 
 app.get("/urls/:shortURL", (req, res) => {
-  const templateVars = { shortURL: req.params.shortURL, longURL: urlDatabase };
-  res.render("pages/urls_show", templateVars);
+  const templateVars = { shortURL: req.params.shortURL, longURL: urlDatabase};
+  res.render("urls_show", templateVars);
 });
 
+app.get("/u/:shortURL", (req, res) => {
+  const longURL = urlDatabase[req.params.shortURL];
+  res.redirect(longURL);
+});
 
 function generateRandomString() {
 
